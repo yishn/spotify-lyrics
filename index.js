@@ -19,12 +19,12 @@ exports.extractFrom = function(url, callback = () => {}) {
             let getTextNode = x => x ? Array.from(x.childNodes).find(y => y.nodeName == '#text').nodeValue : null
 
             let title = getTextNode($('.mxm-track-title__track')[0])
-            let artist = getTextNode($('.mxm-track-title__artist')[0])
+            let artists = $('.mxm-track-title__artist').map(x => getTextNode(x))
             let album = getTextNode($('.mxm-track-footer__album h2')[0])
             let albumCover = 'http:' + $('.banner-album-image img')[0].src
             let lyrics = $('.mxm-lyrics__content').map(x => getTextNode(x)).join('\n\n')
 
-            callback(null, {title, artist, album, albumCover, lyrics})
+            callback(null, {title, artists, album, albumCover, lyrics})
         })
     })
 }
