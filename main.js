@@ -18,7 +18,7 @@ app.on('ready', () => {
     // window.toggleDevTools()
 
     window
-    .once('ready-to-show', () => window.show())
+    .on('ready-to-show', () => window.show())
     .on('closed', () => window = null)
     .webContents
     .on('new-window', evt => evt.preventDefault())

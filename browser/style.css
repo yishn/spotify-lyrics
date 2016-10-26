@@ -25,36 +25,75 @@ a, img {
 }
 
 @font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Poppins Light'), local('Poppins-Light'), url('./font/Poppins-Light.ttf') format('truetype');
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Poppins Light'), local('Poppins-Light'), url('./font/Poppins-Light.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Poppins'), local('Poppins-Regular'), url('./font/Poppins-Regular.ttf') format('truetype');
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Poppins'), local('Poppins-Regular'), url('./font/Poppins-Regular.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  src: local('Poppins Medium'), local('Poppins-Medium'), url('./font/Poppins-Medium.ttf') format('truetype');
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Poppins Medium'), local('Poppins-Medium'), url('./font/Poppins-Medium.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 600;
-  src: local('Poppins SemiBold'), local('Poppins-SemiBold'), url('./font/Poppins-SemiBold.ttf') format('truetype');
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Poppins SemiBold'), local('Poppins-SemiBold'), url('./font/Poppins-SemiBold.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Poppins Bold'), local('Poppins-Bold'), url('./font/Poppins-Bold.ttf') format('truetype');
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Poppins Bold'), local('Poppins-Bold'), url('./font/Poppins-Bold.ttf') format('truetype');
+}
+
+/****************************************************************/
+
+header {
+        position: relative;
+        margin: 5px;
+        height: 29px;
+        line-height: 29px;
+        text-align: center;
+    }
+    header .drag {
+        position: absolute;
+        left: 0;
+        right: 45px;
+        top: 0;
+        bottom: 0;
+        -webkit-app-region: drag;
+    }
+    header .title {
+        font: menu;
+        font-size: 12px;
+        opacity: .8;
+    }
+    header .close {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 45px;
+        height: 29px;
+    }
+    header .close:hover {
+        background: #E81123;
+    }
+    header .close:active {
+        background: #8B3A6A;
+    }
+    header .close img {
+        margin-bottom: -1px;
 }
