@@ -22,6 +22,19 @@ let dom = (body, callback = () => {}) => jsdom.env(body, (err, window) => {
     callback(null, window, $, text)
 })
 
+exports.get = function(query, callback = () => {}) {
+    exports.searchFor(query, (err, list) => {
+        if (err || list.length == 0)
+            return callback(err || new Error('Nothing found'))
+
+        exports.extractFrom(list[0].url, (err, result) => {
+            if (err) return callback(err)
+
+            callback(null, result)
+        })
+    })
+}
+
 exports.searchFor = function(query, callback = () => {}) {
     let url = `https://musixmatch.com/search/${encodeURI(query)}/tracks`
 
