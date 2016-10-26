@@ -1,5 +1,4 @@
-const {remote} = require('electron')
-const {app} = remote
-const $ = x => Array.from(document.querySelectorAll(x))
+const {h, render} = require('preact')
+const TitleBar = require('./components/TitleBar')
 
-$('header .close')[0].addEventListener('click', () => app.quit())
+render(h(TitleBar), document.body)
