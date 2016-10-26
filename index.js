@@ -1,16 +1,29 @@
 const fs = require('fs')
 const jsdom = require('jsdom')
-const request = require('request')
+
+let request = (url, callback = () => {}) => require('request')({
+    url,
+    headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.148 Safari/537.36 Vivaldi/1.4.589.38'
+    }
+}, (err, response, body) => {
+    if (err || response.statusCode != 200)
+        return callback(err || new Error('Lyrics unavailable'))
+
+    callback(null, response, body)
+})
+
+exports.searchFor = function(query, callback = () => {}) {
+    let url = `https://musixmatch.com/search/${encodeURI(query)}/tracks`
+
+    request(url, (err, response, body) => {
+        if (err) return callback(err)
+    })
+}
 
 exports.extractFrom = function(url, callback = () => {}) {
-    request({
-        url: encodeURI(url),
-        headers: {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.148 Safari/537.36 Vivaldi/1.4.589.38'
-        }
-    }, (err, response, body) => {
-        if (err || response.statusCode != 200)
-            return callback(err || new Error('Lyrics unavailable'))
+    request(url, (err, response, body) => {
+        if (err) return callback(err)
 
         jsdom.env(body, (err, window) => {
             if (err) return callback(err)
