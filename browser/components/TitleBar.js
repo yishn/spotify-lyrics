@@ -4,11 +4,11 @@ const {h, render, Component} = require('preact')
 class Header extends Component {
     render() {
         return h('header', {},
-            h('span', {className: 'drag'}),
-            h('span', {className: 'title'}, 'Lyrics'),
-            h('span', {className: 'close', onclick: () => app.quit()},
+            h('span', {class: 'drag'}),
+            h('span', {class: 'title'}, 'Lyrics'),
+            h('span', {class: 'close', onclick: () => app.quit()},
                 h('img', {
-                    src: 'close.svg',
+                    src: 'img/close.svg',
                     width: 10,
                     height: 10,
                     title: 'Close'
