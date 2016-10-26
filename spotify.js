@@ -15,7 +15,8 @@ exports.start = function() {
         clearTimeout(loopId)
         loopId = setTimeout(loop, Math.min(1000, (result.track.length - result.playing_position) * 1000))
 
-        if (deepEqual(lastSongId, getTrackId(result.track))) return
+        if (deepEqual(lastSongId, getTrackId(result.track)))
+            return exports.emit('song-progress', result)
 
         lastSongId = getTrackId(result.track)
         exports.emit('song-update', result)
