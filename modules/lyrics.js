@@ -1,4 +1,3 @@
-const fs = require('fs')
 const jsdom = require('jsdom')
 
 let request = (url, callback = () => {}) => require('request')({
