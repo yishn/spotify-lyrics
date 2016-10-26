@@ -16,7 +16,7 @@ exports.extractFrom = function(url, callback = () => {}) {
             if (err) return callback(err)
 
             let $ = x => Array.from(window.document.querySelectorAll(x))
-            let getTextNode = x => Array.from(x.childNodes).find(y => y.nodeName == '#text').nodeValue
+            let getTextNode = x => x ? Array.from(x.childNodes).find(y => y.nodeName == '#text').nodeValue : null
 
             let title = getTextNode($('.mxm-track-title__track')[0])
             let artist = getTextNode($('.mxm-track-title__artist')[0])
