@@ -67,7 +67,7 @@ exports.extractFrom = function(url, callback = () => {}) {
                 artists: $('.mxm-track-title__artist').map(x => text(x)),
                 album: text($('.mxm-track-footer__album h2')[0]),
                 art: 'https:' + $('.banner-album-image img')[0].src,
-                lyrics: $('.mxm-lyrics__content').map(x => text(x)).join('\n\n')
+                lyrics: $('.mxm-lyrics__content').map(x => text(x)).join('\n')
             })
         })
     })
