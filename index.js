@@ -13,11 +13,31 @@ let request = (url, callback = () => {}) => require('request')({
     callback(null, response, body)
 })
 
+let dom = (body, callback = () => {}) => jsdom.env(body, (err, window) => {
+    if (err) return callback(err)
+
+    let $ = x => Array.from(window.document.querySelectorAll(x))
+    let text = x => x ? Array.from(x.childNodes).find(y => y.nodeName == '#text').nodeValue : null
+
+    callback(null, window, $, text)
+})
+
 exports.searchFor = function(query, callback = () => {}) {
     let url = `https://musixmatch.com/search/${encodeURI(query)}/tracks`
 
     request(url, (err, response, body) => {
         if (err) return callback(err)
+
+        dom(body, (err, window, $, text) => {
+            if (err) return callback(err)
+
+            callback(null, $('.tracks.list li').map(li => li = {
+                title: text(li.querySelector('.title span')),
+                artist: text(li.querySelector('.artist')),
+                url: `https://musixmatch.com${li.querySelector('.title').href}`,
+                art: 'https:' + li.querySelector('img').srcset.split(',').splice(-1)[0].trim().split(' ')[0]
+            }))
+        })
     })
 }
 
@@ -25,19 +45,16 @@ exports.extractFrom = function(url, callback = () => {}) {
     request(url, (err, response, body) => {
         if (err) return callback(err)
 
-        jsdom.env(body, (err, window) => {
+        dom(body, (err, window, $, text) => {
             if (err) return callback(err)
 
-            let $ = x => Array.from(window.document.querySelectorAll(x))
-            let getTextNode = x => x ? Array.from(x.childNodes).find(y => y.nodeName == '#text').nodeValue : null
-
-            let title = getTextNode($('.mxm-track-title__track')[0])
-            let artists = $('.mxm-track-title__artist').map(x => getTextNode(x))
-            let album = getTextNode($('.mxm-track-footer__album h2')[0])
-            let albumCover = 'http:' + $('.banner-album-image img')[0].src
-            let lyrics = $('.mxm-lyrics__content').map(x => getTextNode(x)).join('\n\n')
-
-            callback(null, {title, artists, album, albumCover, lyrics})
+            callback(null, {
+                title: text($('.mxm-track-title__track')[0]),
+                artists: $('.mxm-track-title__artist').map(x => text(x)),
+                album: text($('.mxm-track-footer__album h2')[0]),
+                art: 'https:' + $('.banner-album-image img')[0].src,
+                lyrics: $('.mxm-lyrics__content').map(x => text(x)).join('\n\n')
+            })
         })
     })
 }
