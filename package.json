@@ -1,13 +1,14 @@
 {
-  "name": "node-lyrics",
+  "name": "spotify-lyrics",
   "version": "0.1.0",
-  "description": "Gets lyrics from musixmatch.",
+  "description": "Shows lyrics from the song you're currently playing in Spotify.",
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yishn/node-lyrics.git"
   },
   "keywords": [
+    "spotify",
     "lyrics",
     "musixmatch",
     "music"
@@ -20,6 +21,7 @@
   "homepage": "https://github.com/yishn/node-lyrics",
   "dependencies": {
     "jsdom": "^9.8.3",
+    "node-spotify-webhelper": "0.0.5",
     "request": "^2.76.0"
   }
 }

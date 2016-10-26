@@ -1,3 +1,3 @@
-# node-lyrics
+# spotify-lyrics
 
-Gets lyrics from musixmatch. This is a work in progress.
+Shows lyrics from the song you're currently playing in Spotify. This is a work in progress.
