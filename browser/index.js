@@ -3,6 +3,6 @@ const {TitleBar} = require('./components')
 
 render(
     h('div', {id: 'root'},
-        h(TitleBar)
+        h(TitleBar, {title: 'Spotify Lyrics'})
     ),
 document.body)
