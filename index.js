@@ -62,6 +62,7 @@ exports.extractFrom = function(url, callback = () => {}) {
             if (err) return callback(err)
 
             callback(null, {
+                url,
                 title: text($('.mxm-track-title__track')[0]),
                 artists: $('.mxm-track-title__artist').map(x => text(x)),
                 album: text($('.mxm-track-footer__album h2')[0]),
