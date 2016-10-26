@@ -1,2 +1,3 @@
 # node-lyrics
-Gets lyrics from musixmatch
+
+Gets lyrics from musixmatch. This is a work in progress.
