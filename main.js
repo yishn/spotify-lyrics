@@ -9,7 +9,9 @@ app.on('ready', () => {
         width: 350,
         height: 500,
         useContentSize: true,
-        backgroundColor: '#000',
+        backgroundColor: '#121212',
+        maximizable: false,
+        frame: false,
         show: false
     })
 

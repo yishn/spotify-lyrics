@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+    background: #121212;
+    cursor: default;
+    outline: 0;
+    user-select: none;
+}
+
+body, input, button, select, option, textarea {
+    font: menu;
+    font-size: 14px;
+    line-height: 1.5;
+}
