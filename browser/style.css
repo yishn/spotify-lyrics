@@ -24,6 +24,18 @@ a, img {
     object-fit: contain;
 }
 
+::-webkit-scrollbar {
+        height: 15px;
+        width: 15px;
+        background: #121212;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #333;
+    }
+    ::-webkit-scrollbar-corner {
+        background: #121212;
+}
+
 @font-face {
     font-family: 'Poppins';
     font-style: normal;
