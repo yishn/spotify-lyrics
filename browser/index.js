@@ -1,4 +1,8 @@
 const {h, render} = require('preact')
-const TitleBar = require('./components/TitleBar')
+const {TitleBar} = require('./components')
 
-render(h(TitleBar), document.body)
+render(
+    h('div', {id: 'root'},
+        h(TitleBar)
+    ),
+document.body)
