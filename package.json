@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "description": "Gets lyrics from musixmatch.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yishn/node-lyrics.git"
@@ -20,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/yishn/node-lyrics/issues"
   },
-  "homepage": "https://github.com/yishn/node-lyrics#readme",
+  "homepage": "https://github.com/yishn/node-lyrics",
   "dependencies": {
     "jsdom": "^9.8.3",
     "request": "^2.76.0"
