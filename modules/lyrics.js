@@ -46,7 +46,7 @@ exports.searchFor = function(query, callback = () => {}) {
             callback(null, $('.tracks.list li').map(li => li = {
                 title: text(li.querySelector('.title span')),
                 artist: text(li.querySelector('.artist')),
-                url: `https://musixmatch.com${li.querySelector('.title').href}`,
+                url: 'https://musixmatch.com' + li.querySelector('.title').href,
                 art: 'https:' + li.querySelector('img').srcset.split(',').splice(-1)[0].trim().split(' ')[0]
             }))
         })
