@@ -2,7 +2,7 @@
   "name": "spotify-lyrics",
   "version": "0.1.0",
   "description": "Shows lyrics from the song you're currently playing in Spotify.",
-  "main": "index.js",
+  "main": "main.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yishn/node-lyrics.git"
