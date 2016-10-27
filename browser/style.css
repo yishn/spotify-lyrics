@@ -217,6 +217,7 @@ main {
         bottom: 0;
         padding: 10px 20px;
         background: #181818;
+        font-weight: 500;
         overflow: auto;
     }
     .lyrics-box .placeholder {
