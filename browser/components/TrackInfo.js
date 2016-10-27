@@ -1,4 +1,5 @@
 const {h} = require('preact')
+const smartypants = require('../../modules/smartypants')
 
 module.exports = ({loading, title, artists, album, art}) =>
 
@@ -13,13 +14,13 @@ h('section', {class: {'track-info': true, loading}},
     }),
     h('ul', {},
         h('li', {class: {title: true, disabled: !title}},
-            title || (loading ? '…' : 'No Title')
+            smartypants(title || (loading ? '…' : 'No Title'))
         ),
         h('li', {class: {artists: true, disabled: !artists || !artists.length}},
-            artists && artists.length ? artists.join(', ') : (loading ? '…' : 'No Artists')
+            smartypants(artists && artists.length ? artists.join(', ') : (loading ? '…' : 'No Artists'))
         ),
         h('li', {class: {album: true, disabled: !album}},
-            album || (loading ? '…' : 'No Album')
+            smartypants(album || (loading ? '…' : 'No Album'))
         )
     )
 )

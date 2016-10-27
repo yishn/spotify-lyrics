@@ -1,5 +1,6 @@
 const {shell} = require('electron')
 const {h} = require('preact')
+const smartypants = require('../../modules/smartypants')
 
 let words
 
@@ -8,7 +9,7 @@ module.exports = ({loading, lyrics, url}) =>
 h('section', {class: {'lyrics-box': true, loading}},
     h('p', {class: 'placeholder'}),
     lyrics
-    ? lyrics.split('\n').map(line =>
+    ? smartypants(lyrics).split('\n').map(line =>
         (line = line.trim()) == ''
         ? h('br')
         : h('p', {},
