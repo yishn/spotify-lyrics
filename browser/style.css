@@ -121,8 +121,8 @@ header {
     .track-info .drag {
         position: absolute;
         top: 29px;
-        left: 0;
-        right: 0;
+        left: 5px;
+        right: 5px;
         bottom: 0;
         -webkit-app-region: drag;
     }
@@ -141,6 +141,7 @@ header {
         opacity: .8;
     }
     .track-info .title {
+        margin-right: 45px;
         font-size: 1.5em;
         opacity: 1;
     }
