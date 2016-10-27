@@ -36,7 +36,11 @@ class App extends Component {
         return h('div', {id: 'root'},
             h(TitleBar),
             h(TrackInfo, {loading, title, artists, album, art}),
-            h(LyricsBox, {loading, lyrics})
+            h('main', {},
+                h(LyricsBox, {loading, lyrics}),
+                h('div', {class: 'fade-in'}),
+                h('div', {class: 'fade-out'})
+            )
         )
     }
 }

@@ -180,12 +180,36 @@ header {
 
 /****************************************************************/
 
-.lyrics-box {
+main {
         position: absolute;
         top: 87px;
         bottom: 0;
         left: 0;
         right: 0;
+    }
+    main > .fade-in, main > .fade-out {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 50px;
+        background: linear-gradient(to top, transparent 0%, #181818 calc(100% - 5px));
+        pointer-events: none;
+    }
+    main > .fade-out {
+        top: auto;
+        bottom: 0;
+        background: linear-gradient(to bottom, transparent 0%, #181818 calc(100% - 5px));
+}
+
+/****************************************************************/
+
+.lyrics-box {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
         padding: 10px 20px;
         background: #181818;
         overflow: auto;
