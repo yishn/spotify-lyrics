@@ -127,6 +127,7 @@ header {
         -webkit-app-region: drag;
     }
     .track-info .art {
+        background: black;
         float: left;
         margin-right: 10px;
     }
@@ -139,12 +140,12 @@ header {
         white-space: nowrap;
         opacity: .8;
     }
-    .track-info .disabled {
-        opacity: .3;
-    }
     .track-info .title {
         font-size: 1.5em;
         opacity: 1;
+    }
+    .track-info .disabled {
+        opacity: .3;
 }
 
 /****************************************************************/

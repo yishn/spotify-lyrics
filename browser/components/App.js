@@ -1,4 +1,4 @@
-const {h, render, Component} = require('preact')
+const {h, Component} = require('preact')
 const TitleBar = require('./TitleBar')
 const TrackInfo = require('./TrackInfo')
 const LyricsBox = require('./LyricsBox')
