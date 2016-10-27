@@ -20,8 +20,10 @@ h('section', {class: {'lyrics-box': true, loading}},
     : loading
     ? h('div', {class: 'spinner'}, h('div'), h('div'), h('div'))
     : h('p', {class: 'no-lyrics'}, 'No Lyrics'),
-    lyrics ? h('p', {class: 'end'}, 'End') : undefined,
-    lyrics ? h('a', {
+
+    lyrics && h('p', {class: 'end'}, 'End'),
+
+    lyrics && h('a', {
         class: 'badge',
         href: '#',
         title: 'Powered by Musixmatch',
@@ -29,6 +31,7 @@ h('section', {class: {'lyrics-box': true, loading}},
             e.preventDefault()
             shell.openExternal(url)
         }
-    }, h('img', {src: 'img/badge.svg'})) : undefined,
-    h('p', {class: 'placeholder'})
+    }, h('img', {src: 'img/badge.svg'})),
+
+    lyrics && h('p', {class: 'placeholder'})
 )
