@@ -1,7 +1,9 @@
 const {app} = require('electron').remote
 const {h} = require('preact')
 
-module.exports = ({title}) => h('header', {},
+module.exports = ({title}) =>
+
+h('header', {},
     h('span', {class: 'drag'}),
     h('span', {class: 'title'}, title || ''),
     h('span', {class: 'close', onclick: () => app.quit()},

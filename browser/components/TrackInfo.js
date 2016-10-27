@@ -1,6 +1,8 @@
 const {h} = require('preact')
 
-module.exports = ({title, artists, album, art}) => h('section', {class: 'track-info'},
+module.exports = ({loading, title, artists, album, art}) =>
+
+h('section', {class: {'track-info': true, loading}},
     h('div', {class: 'drag'}),
     h('img', {
         class: 'art',
@@ -10,13 +12,13 @@ module.exports = ({title, artists, album, art}) => h('section', {class: 'track-i
     }),
     h('ul', {},
         h('li', {class: {title: true, disabled: !title}},
-            title || 'No Title'
+            title || (loading ? '…' : 'No Title')
         ),
         h('li', {class: {artists: true, disabled: !artists || !artists.length}},
-            artists && artists.length ? artists.join(', ') : 'No Artists'
+            artists && artists.length ? artists.join(', ') : (loading ? '…' : 'No Artists')
         ),
         h('li', {class: {album: true, disabled: !album}},
-            album || 'No Album'
+            album || (loading ? '…' : 'No Album')
         )
     )
 )
