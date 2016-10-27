@@ -35,7 +35,8 @@ exports.get = function(query, callback = () => {}) {
 }
 
 exports.searchFor = function(query, callback = () => {}) {
-    let url = `https://musixmatch.com/search/${encodeURI(query)}/tracks`
+    query = encodeURI(query.replace(/\//g, ''))
+    let url = `https://musixmatch.com/search/${query}/tracks`
 
     request(url, (err, response, body) => {
         if (err) return callback(err)

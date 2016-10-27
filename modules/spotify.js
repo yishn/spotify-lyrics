@@ -8,7 +8,7 @@ module.exports = exports = new EventEmitter()
 
 let getTrackId = track => ['track', 'artist', 'album'].map(x => track[x + '_resource'].uri)
 
-exports.start = function() {
+exports.listen = function() {
     let loop = () => spotify.getStatus((err, result) => {
         if (err || result.error || !result.running) return
 
