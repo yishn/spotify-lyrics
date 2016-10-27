@@ -6,8 +6,6 @@ h('section', {class: {'track-info': true, loading}},
     h('div', {class: 'drag'}),
     h('img', {
         class: 'art',
-        width: 67,
-        height: 67,
         src: art ? art : 'img/blank.svg'
     }),
     h('ul', {},
