@@ -190,6 +190,10 @@ header {
         background: #181818;
         overflow: auto;
     }
+    .lyrics-box .placeholder {
+        height: 33%;
+        margin: 0;
+    }
     .lyrics-box .spinner {
         position: absolute;
         top: 50%;

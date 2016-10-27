@@ -4,6 +4,7 @@ let words
 module.exports = ({loading, lyrics}) =>
 
 h('section', {class: {'lyrics-box': true, loading}},
+    h('p', {class: 'placeholder'}),
     lyrics
     ? lyrics.split('\n').map(line =>
         (line = line.trim()) == ''
@@ -15,5 +16,6 @@ h('section', {class: {'lyrics-box': true, loading}},
     )
     : loading
     ? h('div', {class: 'spinner'}, h('div'), h('div'), h('div'))
-    : h('p', {class: 'no-lyrics'}, 'No Lyrics')
+    : h('p', {class: 'no-lyrics'}, 'No Lyrics'),
+    h('p', {class: 'placeholder'})
 )
