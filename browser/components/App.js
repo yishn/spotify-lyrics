@@ -18,7 +18,7 @@ class App extends Component {
             }),
 
             h(LyricsBox, {
-                lyrics: require('fs').readFileSync(require('path').join(__dirname, '../../lyrics.txt'), 'utf-8')
+                // lyrics: require('fs').readFileSync(require('path').join(__dirname, '../../lyrics.txt'), 'utf-8')
             })
         )
     }

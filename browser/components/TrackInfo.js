@@ -9,10 +9,14 @@ module.exports = ({title, artists, album, art}) => h('section', {class: 'track-i
         src: art ? art : 'img/blank.svg'
     }),
     h('ul', {},
-        h('li', {class: {title: true, disabled: !title}}, title ? title : 'No Title'),
+        h('li', {class: {title: true, disabled: !title}},
+            title ? title : 'No Title'
+        ),
         h('li', {class: {artists: true, disabled: !artists || !artists.length}},
             artists && artists.length ? artists.join(', ') : 'No Artists'
         ),
-        h('li', {class: {album: true, disabled: !album}}, album ? album : 'No Album')
+        h('li', {class: {album: true, disabled: !album}},
+            album ? album : 'No Album'
+        )
     )
 )
