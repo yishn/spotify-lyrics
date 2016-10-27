@@ -32,6 +32,9 @@ a, img {
     ::-webkit-scrollbar-thumb {
         background: #333;
     }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #404040;
+    }
     ::-webkit-scrollbar-corner {
         background: #121212;
 }
@@ -95,6 +98,7 @@ header {
         top: 0;
         width: 45px;
         height: 29px;
+        z-index: 100;
     }
     header .close:hover {
         background: #E81123;
@@ -110,11 +114,13 @@ header {
 
 .track-info {
         position: relative;
-        padding: 0 10px 5px;
+        margin-top: -34px;
+        padding: 5px 10px 10px;
+        z-index: 99;
     }
     .track-info .drag {
         position: absolute;
-        top: 0;
+        top: 29px;
         left: 0;
         right: 0;
         bottom: 0;
@@ -140,3 +146,27 @@ header {
         font-size: 1.5em;
         opacity: 1;
 }
+
+/****************************************************************/
+
+.lyrics-box {
+        position: absolute;
+        top: 87px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 10px 20px;
+        background: #181818;
+        overflow: auto;
+    }
+    .lyrics-box p {
+        margin: 10px 0;
+        text-align: center;
+        font-size: 1.3em;
+    }
+    .lyrics-box p span {
+        display: inline-block;
+    }
+    .lyrics-box br {
+        opacity: 0;
+    }

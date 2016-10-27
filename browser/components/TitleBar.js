@@ -1,5 +1,5 @@
 const {app} = require('electron').remote
-const {h, render} = require('preact')
+const {h} = require('preact')
 
 module.exports = ({title}) => h('header', {},
     h('span', {class: 'drag'}),

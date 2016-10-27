@@ -1,4 +1,4 @@
-const {h, render} = require('preact')
+const {h} = require('preact')
 
 module.exports = ({title, artists, album, art}) => h('section', {class: 'track-info'},
     h('div', {class: 'drag'}),
