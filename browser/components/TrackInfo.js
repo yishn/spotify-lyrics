@@ -6,7 +6,10 @@ h('section', {class: {'track-info': true, loading}},
     h('div', {class: 'drag'}),
     h('img', {
         class: 'art',
-        src: art ? art : 'img/blank.svg'
+        src: 'img/blank.svg',
+        style: {
+            backgroundImage: art ? `url('${art}')` : "url('img/blank.svg')"
+        }
     }),
     h('ul', {},
         h('li', {class: {title: true, disabled: !title}},

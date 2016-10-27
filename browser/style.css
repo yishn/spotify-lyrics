@@ -15,7 +15,7 @@ html, body {
 }
 
 body, input, button, select, option, textarea {
-    font: 300 13px/1.5 'Poppins', sans-serif;
+    font: 13px/1.5 'Poppins', sans-serif;
 }
 
 a, img {
@@ -143,6 +143,7 @@ header {
         position: relative;
         margin-top: -34px;
         padding: 5px 10px 10px;
+        font-weight: 300;
         z-index: 99;
     }
     .track-info .drag {
@@ -156,9 +157,12 @@ header {
     .track-info .art {
         width: 67px;
         height: 67px;
-        background: black;
+        background-image: none;
+        background-color: black;
+        background-size: cover;
         float: left;
         margin-right: 10px;
+        transition: background-image .5s;
     }
     .track-info ul {
         list-style: none;
@@ -172,6 +176,7 @@ header {
     .track-info .title {
         margin-right: 45px;
         font-size: 1.5em;
+        font-weight: 500;
         opacity: 1;
     }
     .track-info .disabled {
@@ -225,7 +230,7 @@ main {
         transform: translate(-50%, -50%);
     }
     .lyrics-box p {
-        margin: 10px 0;
+        margin: 15px 0;
         text-align: center;
         font-size: 1.3em;
     }
