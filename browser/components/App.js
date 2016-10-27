@@ -29,7 +29,7 @@ class App extends Component {
             })
         })
 
-        spotify.listen()
+        window.addEventListener('load', () => spotify.listen())
     }
 
     render({}, {loading, title, artists, album, art, lyrics}) {

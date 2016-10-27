@@ -234,6 +234,9 @@ main {
         text-align: center;
         font-size: 1.3em;
     }
+    .lyrics-box p.end {
+        opacity: .3;
+    }
     .lyrics-box .no-lyrics {
         position: absolute;
         top: 50%;

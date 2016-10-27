@@ -17,5 +17,6 @@ h('section', {class: {'lyrics-box': true, loading}},
     : loading
     ? h('div', {class: 'spinner'}, h('div'), h('div'), h('div'))
     : h('p', {class: 'no-lyrics'}, 'No Lyrics'),
+    lyrics ? h('p', {class: 'end'}, 'End') : undefined,
     h('p', {class: 'placeholder'})
 )
