@@ -32,12 +32,12 @@ class App extends Component {
         window.addEventListener('load', () => spotify.listen())
     }
 
-    render({}, {loading, title, artists, album, art, lyrics}) {
+    render({}, {loading, title, artists, album, art, lyrics, url}) {
         return h('div', {id: 'root'},
             h(TitleBar),
             h(TrackInfo, {loading, title, artists, album, art}),
             h('main', {},
-                h(LyricsBox, {loading, lyrics}),
+                h(LyricsBox, {loading, lyrics, url}),
                 h('div', {class: 'fade-in'}),
                 h('div', {class: 'fade-out'})
             )
