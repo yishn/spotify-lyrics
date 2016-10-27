@@ -222,7 +222,7 @@ main {
         overflow: auto;
     }
     .lyrics-box .placeholder {
-        height: 33%;
+        height: 50%;
         margin: 0;
     }
     .lyrics-box .spinner {
@@ -246,7 +246,7 @@ main {
         display: inline-block;
         height: 50px;
         margin-top: 50px;
-        margin-bottom: -10%;
+        margin-bottom: -100px;
         overflow: hidden;
     }
     .lyrics-box .badge img {

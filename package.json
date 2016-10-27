@@ -24,7 +24,8 @@
     "jsdom": "^9.8.3",
     "node-spotify-webhelper": "0.0.5",
     "preact": "^6.3.0",
-    "request": "^2.76.0"
+    "request": "^2.76.0",
+    "scroll": "^2.0.0"
   },
   "devDependencies": {
     "electron-packager": "^8.1.0"
