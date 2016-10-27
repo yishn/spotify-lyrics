@@ -131,7 +131,7 @@ header {
         background: #E81123;
     }
     header .close:active {
-        background: #8B3A6A;
+        background: #B50D1B;
     }
     header .close img {
         margin-bottom: -1px;
@@ -198,13 +198,13 @@ main {
         left: 0;
         right: 0;
         height: 50px;
-        background: linear-gradient(to top, transparent 0%, #181818 calc(100% - 5px));
+        background: linear-gradient(to top, transparent 0%, #181818 calc(100% - 10px));
         pointer-events: none;
     }
     main > .fade-out {
         top: auto;
         bottom: 0;
-        background: linear-gradient(to bottom, transparent 0%, #181818 calc(100% - 5px));
+        background: linear-gradient(to bottom, transparent 0%, #181818 calc(100% - 10px));
 }
 
 /****************************************************************/

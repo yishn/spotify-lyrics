@@ -7,7 +7,7 @@ app.on('window-all-closed', () => app.quit())
 app.on('ready', () => {
     window = new BrowserWindow({
         width: 350,
-        height: 500,
+        height: 450,
         useContentSize: true,
         backgroundColor: '#121212',
         maximizable: false,
