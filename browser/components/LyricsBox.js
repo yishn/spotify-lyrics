@@ -13,5 +13,7 @@ h('section', {class: {'lyrics-box': true, loading}},
             h('span', {}, words.splice(-2).join(' '))
         )
     )
-    : h('p', {class: 'no-lyrics'}, loading ? 'Loading…' : 'No Lyrics')
+    : loading
+    ? h('div', {class: 'spinner'}, h('div'), h('div'), h('div'))
+    : h('p', {class: 'no-lyrics'}, 'No Lyrics')
 )

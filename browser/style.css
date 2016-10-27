@@ -70,6 +70,33 @@ a, img {
         src: local('Poppins Bold'), local('Poppins-Bold'), url('./font/Poppins-Bold.ttf') format('truetype');
 }
 
+.spinner {
+        width: 44px;
+    }
+    .spinner div {
+        width: 10px;
+        height: 10px;
+        margin: 0 2px;
+        background-color: white;
+        border-radius: 100%;
+        display: inline-block;
+        opacity: .5;
+        animation: spinner-bouncedelay 1.4s infinite ease-in-out both;
+    }
+    .spinner div:nth-child(1) {
+        animation-delay: -0.32s;
+    }
+    .spinner div:nth-child(2) {
+        animation-delay: -0.16s;
+    }
+    @keyframes spinner-bouncedelay {
+        0%, 80%, 100% {
+            transform: scale(0);
+        } 40% {
+            transform: scale(1.0);
+        }
+}
+
 /****************************************************************/
 
 header {
@@ -162,6 +189,12 @@ header {
         padding: 10px 20px;
         background: #181818;
         overflow: auto;
+    }
+    .lyrics-box .spinner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
     .lyrics-box p {
         margin: 10px 0;
