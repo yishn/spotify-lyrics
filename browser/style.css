@@ -235,6 +235,9 @@ main {
         margin: 15px 0;
         font-size: 1.3em;
     }
+    .lyrics-box p.parentheses {
+        opacity: .8;
+    }
     .lyrics-box p.end {
         opacity: .3;
     }

@@ -12,7 +12,7 @@ h('section', {class: {'lyrics-box': true, loading}},
     ? smartypants(lyrics).split('\n').map(line =>
         (line = line.trim()) == ''
         ? h('br')
-        : h('p', {},
+        : h('p', {class: {parentheses: line[0] == '(' && line[line.length - 1] == ')'}},
             (words = line.split(/\s+/)).slice(0, words.length - 2).join(' ') + ' ',
             h('span', {}, words.splice(-2).join(' '))
         )
