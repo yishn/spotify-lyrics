@@ -142,7 +142,7 @@ header {
 .track-info {
         position: relative;
         margin-top: -34px;
-        padding: 5px 10px 10px;
+        padding: 10px 15px 15px;
         font-weight: 300;
         z-index: 99;
     }
@@ -155,13 +155,13 @@ header {
         -webkit-app-region: drag;
     }
     .track-info .art {
-        width: 67px;
-        height: 67px;
+        width: 70px;
+        height: 70px;
         background-image: none;
         background-color: black;
         background-size: cover;
         float: left;
-        margin-right: 10px;
+        margin-right: 15px;
         transition: background-image .5s;
     }
     .track-info ul {
@@ -179,6 +179,9 @@ header {
         font-weight: 500;
         opacity: 1;
     }
+    .track-info .artists {
+        margin-bottom: 3px;
+    }
     .track-info .disabled {
         opacity: .3;
 }
@@ -187,7 +190,7 @@ header {
 
 main {
         position: absolute;
-        top: 87px;
+        top: 103px;
         bottom: 0;
         left: 0;
         right: 0;
