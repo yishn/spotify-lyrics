@@ -108,7 +108,7 @@ header {
     }
     header .drag {
         position: absolute;
-        left: 82px;
+        left: 100px;
         right: 45px;
         top: 0;
         bottom: 0;
@@ -149,7 +149,7 @@ header {
     .track-info .drag {
         position: absolute;
         top: 29px;
-        left: 82px;
+        left: 100px;
         right: 5px;
         bottom: 0;
         -webkit-app-region: drag;
@@ -225,7 +225,7 @@ main {
         overflow: auto;
     }
     .lyrics-box .placeholder {
-        height: 50%;
+        height: calc(50% - 1.5em);
         margin: 0;
     }
     .lyrics-box .spinner {
@@ -244,17 +244,29 @@ main {
     .lyrics-box p.end {
         opacity: .3;
     }
+    .lyrics-box .powered-by {
+        margin-top: 50px;
+        font-size: .8em;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        opacity: .3;
+    }
     .lyrics-box .badge {
         border-radius: 5px;
-        display: inline-block;
+        display: block;
         height: 50px;
-        margin-top: 50px;
         margin-bottom: -100px;
         overflow: hidden;
     }
     .lyrics-box .badge img {
         margin-top: -27px;
         width: 200px;
+        opacity: .6;
+        transition: opacity .2s;
+    }
+    .lyrics-box .badge:hover img {
+        opacity: 1;
     }
     .lyrics-box .no-lyrics {
         position: absolute;

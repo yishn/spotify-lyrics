@@ -7,6 +7,8 @@ let words
 
 class LyricsBox extends Component {
     componentDidUpdate() {
+        if (!this.props.autoscroll) return
+
         if (this.props.loading) {
             this.lastScrollTop = null
             this.lastTimePosition = null
@@ -54,10 +56,10 @@ class LyricsBox extends Component {
 
             lyrics && h('p', {class: 'end'}, 'End'),
 
+            lyrics && h('div', {class: 'powered-by'}, 'Powered by'),
             lyrics && h('a', {
                 class: 'badge',
                 href: '#',
-                title: 'Powered by Musixmatch',
                 onclick: e => {
                     e.preventDefault()
                     shell.openExternal(url)
