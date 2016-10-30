@@ -19,13 +19,14 @@ class LyricsBox extends Component {
         let scrollTop = this.element.scrollTop
 
         if (!userChanged) {
-            let deltaTime = this.props.position - this.lastTimePosition
-            let lastRemaining = this.props.total - this.lastTimePosition
-            let progress = deltaTime / lastRemaining
+            let {position, total} = this.props
+            let relativeProgress = (position - this.lastTimePosition) / (total - this.lastTimePosition)
             let remainingPx = this.element.scrollHeight - this.element.clientHeight - this.element.scrollTop
-            let deltaPx = progress * remainingPx
+            let deltaPx = relativeProgress * remainingPx
 
             scrollTop += deltaPx
+
+            if (position < 1) scrollTop = 0
         }
 
         this.lastScrollTop = scrollTop
