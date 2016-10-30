@@ -47,7 +47,7 @@ class LyricsBox extends Component {
                 ? h('br')
                 : h('p', {class: {parentheses: line[0] == '(' && line[line.length - 1] == ')'}},
                     (words = line.split(/\s+/)).slice(0, words.length - 2).join(' ') + ' ',
-                    h('span', {}, words.splice(-2).join(' '))
+                    h('span', {}, words.slice(-2).join(' '))
                 )
             )
             : loading
