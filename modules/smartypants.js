@@ -1,4 +1,4 @@
-module.exports = function smartyPants(text) {
+module.exports = function(text) {
     return text
         .replace(/\.{3}/g, '…')
         .replace(/(\S)'/g, '$1’')
