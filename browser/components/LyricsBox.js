@@ -6,12 +6,13 @@ const smartypants = require('../../modules/smartypants')
 let words
 
 class LyricsBox extends Component {
-    componentDidUpdate() {
+    componentDidUpdate(prevProps) {
         if (!this.props.autoscroll) return
 
-        if (this.props.loading) {
+        if (prevProps.lyrics != this.props.lyrics) {
             this.lastScrollTop = null
             this.lastTimePosition = null
+            scroll.top(this.element, 0)
             return
         }
 
