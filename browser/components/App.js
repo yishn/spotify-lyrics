@@ -10,13 +10,17 @@ class App extends Component {
     constructor() {
         super()
 
+        this.state = {autoscroll: true}
+
         spotify.on('song-update', ({track, playing_position}) => {
-            this.state = {}
             this.setState({
                 loading: true,
                 title: track.track_resource.name,
                 artists: [track.artist_resource.name],
                 album: track.album_resource.name,
+                art: null,
+                lyrics: null,
+                url: null,
                 position: playing_position,
                 total: track.length
             })
