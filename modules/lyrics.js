@@ -1,5 +1,7 @@
 const jsdom = require('jsdom')
 
+let cache = {}
+
 let request = (url, callback = () => {}) => require('request')({
     url,
     headers: {
@@ -22,6 +24,9 @@ let dom = (body, callback = () => {}) => jsdom.env(body, (err, window) => {
 })
 
 exports.get = function(query, callback = () => {}) {
+    if (query in cache)
+        return callback(null, cache[query])
+
     exports.searchFor(query, (err, list) => {
         if (err || list.length == 0)
             return callback(err || new Error('Nothing found'))
@@ -29,6 +34,7 @@ exports.get = function(query, callback = () => {}) {
         exports.extractFrom(list[0].url, (err, result) => {
             if (err) return callback(err)
 
+            cache[query] = result
             callback(null, result)
         })
     })
