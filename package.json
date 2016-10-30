@@ -31,6 +31,6 @@
     "electron-packager": "^8.1.0"
   },
   "scripts": {
-    "build:win": "electron-packager ./ spotifylyrics --platform=win32 --arch=all --app-version=0.1.0 --build-version=0.1.0 --version=1.4.4 --out=./bin --overwrite --app-copyright=\"Copyright (C) 2015/2016 Yichuan Shen\" --win32metadata.CompanyName=\"Yichuan Shen\" --win32metadata.FileDescription=\"Spotify Lyrics\" --win32metadata.OriginalFilename=\"spotifylyrics.exe\" --win32metadata.ProductName=\"Spotify Lyrics\" --win32metadata.InternalName=\"spotifylyrics.exe\" --asar"
+    "build:win": "electron-packager ./ spotifylyrics --platform=win32 --arch=all --app-version=0.1.0 --build-version=0.1.0 --version=1.4.4 --out=./bin --overwrite --app-copyright=\"Copyright (C) 2015/2016 Yichuan Shen\" --win32metadata.CompanyName=\"Yichuan Shen\" --win32metadata.FileDescription=\"Spotify Lyrics\" --win32metadata.OriginalFilename=\"spotifylyrics.exe\" --win32metadata.ProductName=\"Spotify Lyrics\" --win32metadata.InternalName=\"spotifylyrics.exe\" --icon=./icon.ico --asar"
   }
 }
