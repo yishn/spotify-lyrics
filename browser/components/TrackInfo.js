@@ -26,11 +26,12 @@ class TrackInfo extends Component {
         }
     }
 
-    render({loading, title, artists, album, art}, {titleOverflow, artistsOverflow, albumOverflow}) {
-        let [titleText, artistsText, albumText] = this.getRenderText()
+    render({loading, art}) {
+        let texts = this.getRenderText()
 
         return h('section', {class: {'track-info': true, loading}},
             h('div', {class: 'drag'}),
+
             h('img', {
                 class: 'art',
                 src: 'img/blank.svg',
@@ -38,36 +39,17 @@ class TrackInfo extends Component {
                     backgroundImage: art ? `url('${art}')` : "url('img/blank.svg')"
                 }
             }),
+            
             h('ul', {},
-                h('li', {
+                ['title', 'artists', 'album'].map((type, i) => h('li', {
                     class: {
-                        title: true,
-                        disabled: !title,
-                        overflow: titleOverflow
+                        [type]: true,
+                        disabled: !this.props[type],
+                        overflow: this.state[`${type}Overflow`]
                     },
-                    title: titleText,
-                    ref: el => this.titleElement = el,
-                }, titleText),
-
-                h('li', {
-                    class: {
-                        artists: true,
-                        disabled: !artists || !artists.length,
-                        overflow: artistsOverflow
-                    },
-                    title: artistsText,
-                    ref: el => this.artistsElement = el,
-                }, artistsText),
-
-                h('li', {
-                    class: {
-                        album: true,
-                        disabled: !album,
-                        overflow: albumOverflow
-                    },
-                    title: albumText,
-                    ref: el => this.albumElement = el,
-                }, albumText)
+                    title: texts[i],
+                    ref: el => this[`${type}Element`] = el,
+                }, texts[i]))
             )
         )
     }
