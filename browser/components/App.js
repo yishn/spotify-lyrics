@@ -34,7 +34,7 @@ class App extends Component {
                 total: track.length
             })
 
-            let query = [this.state.title, this.state.artists].join(' ')
+            let query = [this.state.title, ...this.state.artists].join(' ')
 
             lyrics.get(query, (err, result) => {
                 if (err) return this.setState({loading: false})
