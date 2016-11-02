@@ -168,10 +168,25 @@ header {
         list-style: none;
     }
     .track-info li {
-        text-overflow: ellipsis;
+        position: relative;
         overflow: hidden;
         white-space: nowrap;
         opacity: .8;
+    }
+    .track-info li::after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 30px;
+        background: linear-gradient(to left, #121212, transparent);
+        opacity: 0;
+        transition: opacity .2s;
+    }
+    .track-info li.overflow::after {
+        opacity: 1;
     }
     .track-info .title {
         margin-right: 45px;
@@ -200,7 +215,7 @@ main {
         top: 0;
         left: 0;
         right: 0;
-        height: 50px;
+        height: 33%;
         background: linear-gradient(to top, transparent 0%, #181818 calc(100% - 10px));
         pointer-events: none;
     }
