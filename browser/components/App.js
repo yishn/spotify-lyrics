@@ -63,14 +63,16 @@ class App extends Component {
         })
     }
 
-    componentDidUpdate({}, {alwaysOnTop}) {
+    componentDidUpdate({}, {alwaysOnTop, autoscroll}) {
         if (this.state.alwaysOnTop != alwaysOnTop) {
             let win = remote.getCurrentWindow()
             win.setAlwaysOnTop(this.state.alwaysOnTop)
+            localStorage.alwaysOnTop = this.state.alwaysOnTop
         }
 
-        localStorage.autoscroll = this.state.autoscroll
-        localStorage.alwaysOnTop = this.state.alwaysOnTop
+        if (this.state.autoscroll != autoscroll) {
+            localStorage.autoscroll = this.state.autoscroll
+        }
     }
 
     render({}, {loading, title, artists, album, art, lyrics, url, position, total, autoscroll}) {
