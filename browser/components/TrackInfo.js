@@ -1,3 +1,4 @@
+const {Menu} = require('electron').remote
 const {h, Component} = require('preact')
 const smartypants = require('../../modules/smartypants')
 
@@ -26,20 +27,28 @@ class TrackInfo extends Component {
         }
     }
 
-    render({loading, art}) {
+    render({loading, art, menu}) {
         let texts = this.getRenderText()
+
+        let openMenu = e => {
+            if (!menu) return
+
+            let {left, bottom} = e.target.getBoundingClientRect()
+            Menu.buildFromTemplate(menu).popup(left, bottom)
+        }
 
         return h('section', {class: {'track-info': true, loading}},
             h('div', {class: 'drag'}),
 
-            h('img', {
-                class: 'art',
-                src: 'img/blank.svg',
-                style: {
-                    backgroundImage: art ? `url('${art}')` : "url('img/blank.svg')"
-                }
-            }),
-            
+            h('div', {class: 'art', onClick: openMenu},
+                h('img', {
+                    src: 'img/blank.svg',
+                    style: {
+                        backgroundImage: art ? `url('${art}')` : "url('img/blank.svg')"
+                    }
+                })
+            ),
+
             h('ul', {},
                 ['title', 'artists', 'album'].map((type, i) => h('li', {
                     class: {

@@ -157,11 +157,15 @@ header {
     .track-info .art {
         width: 70px;
         height: 70px;
+        float: left;
+        margin-right: 15px;
+    }
+    .track-info .art img {
+        width: 70px;
+        height: 70px;
         background-image: none;
         background-color: black;
         background-size: cover;
-        float: left;
-        margin-right: 15px;
         transition: background-image .5s;
     }
     .track-info ul {
