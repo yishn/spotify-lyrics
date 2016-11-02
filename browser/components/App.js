@@ -1,5 +1,7 @@
 const {remote} = require('electron')
+const {app} = require('electron').remote
 const {h, Component} = require('preact')
+
 const TitleBar = require('./TitleBar')
 const TrackInfo = require('./TrackInfo')
 const LyricsBox = require('./LyricsBox')
@@ -98,6 +100,11 @@ class App extends Component {
                         type: 'checkbox',
                         checked: alwaysOnTop,
                         click: () => this.setState({alwaysOnTop: !alwaysOnTop})
+                    },
+                    {type: 'separator'},
+                    {
+                        label: 'Exit',
+                        click: () => app.quit()
                     }
                 ]
             }),
