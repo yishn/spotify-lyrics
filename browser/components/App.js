@@ -1,3 +1,4 @@
+const {remote} = require('electron')
 const {h, Component} = require('preact')
 const TitleBar = require('./TitleBar')
 const TrackInfo = require('./TrackInfo')
@@ -12,7 +13,10 @@ class App extends Component {
     constructor() {
         super()
 
-        this.state = {autoscroll: true}
+        this.state = {
+            autoscroll: true,
+            alwaysOnTop: false
+        }
 
         spotify.on('song-update', ({track, playing_position}) => {
             let songId = ++id
@@ -50,6 +54,23 @@ class App extends Component {
         })
 
         window.addEventListener('load', () => spotify.listen())
+    }
+
+    componentDidMount() {
+        this.setState({
+            autoscroll: localStorage.autoscroll == 'true',
+            alwaysOnTop: localStorage.alwaysOnTop == 'true'
+        })
+    }
+
+    componentDidUpdate({}, {alwaysOnTop}) {
+        if (this.state.alwaysOnTop != alwaysOnTop) {
+            let win = remote.getCurrentWindow()
+            win.setAlwaysOnTop(this.state.alwaysOnTop)
+        }
+
+        localStorage.autoscroll = this.state.autoscroll
+        localStorage.alwaysOnTop = this.state.alwaysOnTop
     }
 
     render({}, {loading, title, artists, album, art, lyrics, url, position, total, autoscroll}) {
