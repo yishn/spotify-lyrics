@@ -6,6 +6,8 @@ const LyricsBox = require('./LyricsBox')
 const spotify = require('../../modules/spotify')
 const lyrics = require('../../modules/lyrics')
 
+let id = 0
+
 class App extends Component {
     constructor() {
         super()
@@ -13,7 +15,10 @@ class App extends Component {
         this.state = {autoscroll: true}
 
         spotify.on('song-update', ({track, playing_position}) => {
+            let songId = ++id
+
             this.setState({
+                id: songId,
                 loading: true,
                 title: track.track_resource.name,
                 artists: [track.artist_resource.name],
@@ -31,7 +36,9 @@ class App extends Component {
                 if (err) return this.setState({loading: false})
 
                 result.loading = false
-                this.setState(result)
+
+                if (this.state.id == songId)
+                    this.setState(result)
             })
         })
 
