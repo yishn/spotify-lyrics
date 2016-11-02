@@ -75,10 +75,33 @@ class App extends Component {
         }
     }
 
-    render({}, {loading, title, artists, album, art, lyrics, url, position, total, autoscroll}) {
+    render({}, state) {
+        let {loading, title, artists, album, art,
+            lyrics, url, position, total,
+            autoscroll, alwaysOnTop} = state
+
         return h('div', {id: 'root'},
             h(TitleBar),
-            h(TrackInfo, {loading, title, artists, album, art}),
+
+            h(TrackInfo, {
+                loading,
+                title, artists, album, art,
+                menu: [
+                    {
+                        label: 'Autoscroll',
+                        type: 'checkbox',
+                        checked: autoscroll,
+                        click: () => this.setState({autoscroll: !autoscroll})
+                    },
+                    {
+                        label: 'Always On Top',
+                        type: 'checkbox',
+                        checked: alwaysOnTop,
+                        click: () => this.setState({alwaysOnTop: !alwaysOnTop})
+                    }
+                ]
+            }),
+
             h('main', {},
                 h(LyricsBox, {loading, lyrics, url, position, total, autoscroll}),
                 h('div', {class: 'fade-in'}),
