@@ -18,7 +18,6 @@ app.on('ready', () => {
     // window.toggleDevTools()
 
     window
-    .on('ready-to-show', () => window.show())
     .on('closed', () => window = null)
     .webContents
     .on('new-window', evt => evt.preventDefault())
