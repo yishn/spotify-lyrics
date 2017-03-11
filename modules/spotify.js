@@ -1,7 +1,7 @@
-const spotify = new require('node-spotify-webhelper').SpotifyWebHelper()
+const spotify = new require('./node-spotify-webhelper').SpotifyWebHelper()
 const EventEmitter = require('events')
 
-let loopId, lastSongId
+let loopId, lastSongId = []
 
 module.exports = exports = new EventEmitter()
 

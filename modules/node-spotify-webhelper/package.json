@@ -1,0 +1,84 @@
+{
+  "_args": [
+    [
+      "node-spotify-webhelper@0.0.5",
+      "D:\\Projects\\spotify-lyrics\\resources\\app"
+    ]
+  ],
+  "_from": "node-spotify-webhelper@0.0.5",
+  "_id": "node-spotify-webhelper@0.0.5",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/node-spotify-webhelper",
+  "_nodeVersion": "6.3.1",
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/node-spotify-webhelper-0.0.5.tgz_1473764734774_0.3911971226334572"
+  },
+  "_npmUser": {
+    "email": "nadavbar@gmail.com",
+    "name": "nadavbar"
+  },
+  "_npmVersion": "3.10.3",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "node-spotify-webhelper",
+    "raw": "node-spotify-webhelper@0.0.5",
+    "rawSpec": "0.0.5",
+    "scope": null,
+    "spec": "0.0.5",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/node-spotify-webhelper/-/node-spotify-webhelper-0.0.5.tgz",
+  "_shasum": "7611c303dfad37514a9a5f1f837e8f245b1d410e",
+  "_shrinkwrap": null,
+  "_spec": "node-spotify-webhelper@0.0.5",
+  "_where": "D:\\Projects\\spotify-lyrics\\resources\\app",
+  "author": {
+    "email": "nadavbar@gmail.com",
+    "name": "nadavbar"
+  },
+  "bugs": {
+    "url": "https://github.com/nadavbar/node-spotify-webhelper/issues"
+  },
+  "dependencies": {
+    "request": ">=2.36.0",
+    "wintools": ">=0.1.0"
+  },
+  "description": "Node.js interface for the local Spotify WebHelper API",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "7611c303dfad37514a9a5f1f837e8f245b1d410e",
+    "tarball": "https://registry.npmjs.org/node-spotify-webhelper/-/node-spotify-webhelper-0.0.5.tgz"
+  },
+  "gitHead": "203030686ebcffc461b200f36b63ed2d2cfac624",
+  "homepage": "https://github.com/nadavbar/node-spotify-webhelper",
+  "keywords": [
+    "spotify",
+    "spotifywebhelper",
+    "music"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "email": "nadavbar@gmail.com",
+      "name": "nadavbar"
+    }
+  ],
+  "name": "node-spotify-webhelper",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nadavbar/node-spotify-webhelper.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.0.5"
+}
