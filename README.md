@@ -6,6 +6,12 @@ Shows lyrics from the song you're currently playing in Spotify.
 
 ![Screenshot](screenshot.png)
 
+## Features
+
+- Autoscroll lyrics
+- Automatically get lyrics from musixmatch
+- Always on top window if needed
+
 ## Building
 
 Building spotify-lyrics requires [Node.js 6 or later](https://nodejs.org/en/download/) and npm. First, clone this repository:
