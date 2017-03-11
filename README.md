@@ -27,10 +27,10 @@ Install the dependencies using npm:
 $ npm install
 ~~~
 
-You can build on Windows using:
+You can build using:
 
 ~~~
-$ npm run build:win
+$ npm run build
 ~~~
 
-The binaries will be created in `spotify-lyrics/bin/`.
+The binaries will be created in `spotify-lyrics/bin/`. This app is optimized for Windows, but it should work on other platforms as well.
