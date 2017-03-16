@@ -8,9 +8,10 @@ Shows lyrics from the song you're currently playing in Spotify.
 
 ## Features
 
-- Autoscroll lyrics
+- Lyrics autoscroll
 - Automatically get lyrics from musixmatch
 - Always on top window if needed
+- Typography prettifier
 
 ## Building
 
