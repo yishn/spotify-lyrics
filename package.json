@@ -30,6 +30,6 @@
     "electron-packager": "^8.1.0"
   },
   "scripts": {
-    "build": "electron-packager ./ spotifylyrics --app-version=0.1.0 --build-version=0.1.0 --electron-version=1.6.1 --out=./bin --overwrite --app-copyright=\"Copyright (C) 2016/2017 Yichuan Shen\" --win32metadata.CompanyName=\"Yichuan Shen\" --win32metadata.FileDescription=\"Spotify Lyrics\" --win32metadata.OriginalFilename=\"spotifylyrics.exe\" --win32metadata.ProductName=\"Spotify Lyrics\" --win32metadata.InternalName=\"spotifylyrics.exe\" --icon=./icon.ico --asar"
+    "build": "electron-packager ./ spotifylyrics --app-version=0.1.0 --build-version=0.1.0 --electron-version=1.6.2 --out=./bin --overwrite --app-copyright=\"Copyright (C) 2016/2017 Yichuan Shen\" --win32metadata.CompanyName=\"Yichuan Shen\" --win32metadata.FileDescription=\"Spotify Lyrics\" --win32metadata.OriginalFilename=\"spotifylyrics.exe\" --win32metadata.ProductName=\"Spotify Lyrics\" --win32metadata.InternalName=\"spotifylyrics.exe\" --icon=./icon.ico --asar"
   }
 }

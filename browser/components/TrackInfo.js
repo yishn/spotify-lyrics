@@ -34,7 +34,7 @@ class TrackInfo extends Component {
             if (!menu) return
 
             let {left, bottom} = e.target.getBoundingClientRect()
-            Menu.buildFromTemplate(menu).popup(left, bottom)
+            Menu.buildFromTemplate(menu).popup({async: true, x: left, y: bottom})
         }
 
         return h('section', {class: {'track-info': true, loading}},
