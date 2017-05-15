@@ -2,6 +2,7 @@
 // http://cgbystrom.com/articles/deconstructing-spotifys-builtin-http-server/
 
 var request = require('request')
+var fs = require('fs');
 var qs = require('querystring')
 var util = require('util');
 var path = require('path');
@@ -115,7 +116,13 @@ function getWindowsSpotifyWebHelperPath() {
     return null;
   }
 
-  return path.join(process.env.USERPROFILE, 'AppData\\Roaming\\Spotify\\Data\\SpotifyWebHelper.exe');
+  let paths = [
+    'AppData\\Roaming\\Spotify\\Data\\SpotifyWebHelper.exe',
+    'AppData\\Roaming\\Spotify\\SpotifyWebHelper.exe'
+  ].map(x => path.join(process.env.USERPROFILE, x))
+  .filter(x => fs.existsSync(x));
+
+  return paths[0] || '';
 }
 
 function launchSpotifyWebhelperIfNeeded(cb) {
