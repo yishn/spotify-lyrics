@@ -5,7 +5,7 @@
   "main": "main.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yishn/node-lyrics.git"
+    "url": "git+https://github.com/yishn/spotify-lyrics.git"
   },
   "keywords": [
     "spotify",
@@ -16,9 +16,9 @@
   "author": "Yichuan Shen",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yishn/node-lyrics/issues"
+    "url": "https://github.com/yishn/spotify-lyrics/issues"
   },
-  "homepage": "https://github.com/yishn/node-lyrics",
+  "homepage": "https://github.com/yishn/spotify-lyrics",
   "dependencies": {
     "jsdom": "^9.8.3",
     "preact": "^7.2.0",
@@ -26,10 +26,15 @@
     "scroll": "^2.0.0",
     "wintools": ">=0.1.0"
   },
+  "build": {
+    "appId": "de.yichuanshen.spotifylyrics",
+    "copyright": "Copyright © 2016-2017 Yichuan Shen"
+  },
   "devDependencies": {
-    "electron-packager": "^8.1.0"
+    "electron": "^1.6.8",
+    "electron-builder": "^17.10.0"
   },
   "scripts": {
-    "build": "electron-packager ./ spotifylyrics --app-version=0.1.0 --build-version=0.1.0 --electron-version=1.6.2 --out=./bin --overwrite --app-copyright=\"Copyright (C) 2016/2017 Yichuan Shen\" --win32metadata.CompanyName=\"Yichuan Shen\" --win32metadata.FileDescription=\"Spotify Lyrics\" --win32metadata.OriginalFilename=\"spotifylyrics.exe\" --win32metadata.ProductName=\"Spotify Lyrics\" --win32metadata.InternalName=\"spotifylyrics.exe\" --icon=./icon.ico --asar"
+    "build": "build --dir"
   }
 }

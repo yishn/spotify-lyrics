@@ -122,7 +122,7 @@ function getWindowsSpotifyWebHelperPath() {
   ].map(x => path.join(process.env.USERPROFILE, x))
   .filter(x => fs.existsSync(x));
 
-  return paths[0] || '';
+  return paths[0] || null;
 }
 
 function launchSpotifyWebhelperIfNeeded(cb) {
