@@ -34,4 +34,4 @@ You can build using:
 $ npm run build
 ~~~
 
-The binaries will be created in `spotify-lyrics/bin/`. This app is optimized for Windows, but it should work on other platforms as well.
+The binaries will be created in `spotify-lyrics/dist/`. This app is optimized for Windows, but it should work on other platforms as well.
