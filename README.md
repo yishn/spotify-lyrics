@@ -2,7 +2,7 @@
 
 <img src="logo.png" width="156" height="156">
 
-Shows lyrics from the song you're currently playing in Spotify.
+Shows lyrics from the song you're currently playing in Spotify. [Download the latest release.](https://github.com/yishn/spotify-lyrics/releases)
 
 ![Screenshot](screenshot.png)
 
