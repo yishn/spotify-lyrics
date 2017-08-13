@@ -1,7 +1,7 @@
-const spotify = new require('./node-spotify-webhelper').SpotifyWebHelper()
+const {SpotifyWebHelper} = new require('./node-spotify-webhelper')
 const EventEmitter = require('events')
 
-let loopId, lastSongId = []
+let spotify, loopId, lastSongId = []
 
 module.exports = exports = new EventEmitter()
 
@@ -9,6 +9,8 @@ let getTrackId = track => ['track', 'artist', 'album'].map(x => track[x + '_reso
 let equals = (a, b) => a.length === b.length && a.every((x, i) => x === b[i])
 
 exports.listen = function() {
+    if (spotify == null) spotify = new SpotifyWebHelper()
+
     let loop = () => spotify.getStatus((err, result) => {
         if (err || result.error || !result.running) return
 
