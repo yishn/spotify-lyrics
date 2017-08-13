@@ -38,8 +38,6 @@ function getJson(url, params, headers, cb) {
     if (params)
         url += '?' + qs.stringify(params)
 
-    console.log(url, headers)
-
     // rejectUnauthorized:false should be ok here since we are working with localhost
     // this fixes the UNABLE_TO_VERIFY_LEAF_SIGNATURE error
     request({ 'url': url, 'headers': headers, 'rejectUnauthorized' : false}, function (err, req, body) {
@@ -50,7 +48,6 @@ function getJson(url, params, headers, cb) {
         var parsedBody;
         try {
             parsedBody = JSON.parse(body);
-            console.log(parsedBody)
         }
         catch (e) {
             return cb(e);

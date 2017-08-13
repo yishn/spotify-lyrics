@@ -20,42 +20,42 @@ class App extends Component {
             alwaysOnTop: false
         }
 
-        spotify.on('song-update', ({track, playing_position}) => {
-            let songId = ++id
+        window.addEventListener('load', () => spotify.listen({
+            onSongUpdate: ({track, playing_position}) => {
+                let songId = ++id
 
-            this.setState({
-                id: songId,
-                loading: true,
-                title: track.track_resource.name,
-                artists: [track.artist_resource.name],
-                album: track.album_resource.name,
-                art: null,
-                lyrics: null,
-                url: null,
-                position: playing_position,
-                total: track.length
-            })
+                this.setState({
+                    id: songId,
+                    loading: true,
+                    title: track.track_resource.name,
+                    artists: [track.artist_resource.name],
+                    album: track.album_resource.name,
+                    art: null,
+                    lyrics: null,
+                    url: null,
+                    position: playing_position,
+                    total: track.length
+                })
 
-            let query = [this.state.title, ...this.state.artists].join(' ')
+                let query = [this.state.title, ...this.state.artists].join(' ')
 
-            lyrics.get(query, (err, result) => {
-                if (err) return this.setState({loading: false})
+                lyrics.get(query, (err, result) => {
+                    if (err) return this.setState({loading: false})
 
-                result.loading = false
+                    result.loading = false
 
-                if (this.state.id == songId)
-                    this.setState(result)
-            })
-        })
+                    if (this.state.id == songId)
+                        this.setState(result)
+                })
+            },
 
-        spotify.on('song-progress', ({track, playing_position}) => {
-            this.setState({
-                position: playing_position,
-                total: track.length
-            })
-        })
-
-        window.addEventListener('load', () => spotify.listen())
+            onSongProgress: ({track, playing_position}) => {
+                this.setState({
+                    position: playing_position,
+                    total: track.length
+                })
+            }
+        }))
     }
 
     componentDidMount() {

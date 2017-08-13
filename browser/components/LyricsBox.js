@@ -3,8 +3,6 @@ const {h, Component} = require('preact')
 const scroll = require('scroll')
 const smartypants = require('../../modules/smartypants')
 
-let words
-
 class LyricsBox extends Component {
     componentDidUpdate(prevProps) {
         if (!this.props.autoscroll) return
@@ -36,6 +34,8 @@ class LyricsBox extends Component {
     }
 
     render({loading, lyrics, url, progress}) {
+        let words
+        
         return h('section', {
             class: {'lyrics-box': true, loading},
             ref: el => this.element = el,
