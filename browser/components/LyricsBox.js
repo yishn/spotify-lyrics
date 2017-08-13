@@ -62,7 +62,7 @@ class LyricsBox extends Component {
             lyrics && h('a', {
                 class: 'badge',
                 href: '#',
-                onclick: e => {
+                onClick: e => {
                     e.preventDefault()
                     shell.openExternal(url)
                 }
