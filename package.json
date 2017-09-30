@@ -1,6 +1,6 @@
 {
   "name": "spotify-lyrics",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Shows lyrics from the song you're currently playing in Spotify.",
   "main": "main.js",
   "repository": {
