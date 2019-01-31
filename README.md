@@ -1,3 +1,5 @@
+> **Warning:** Since 2018, Spotify has changed its method how it communicates with Spotify Webhelper. Since then, no one has figured out how the new communication works, which is why this project no longer works.
+
 # spotify-lyrics
 
 <img src="logo.png" width="156" height="156">
