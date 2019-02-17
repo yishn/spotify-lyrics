@@ -27,7 +27,7 @@
   },
   "build": {
     "appId": "de.yichuanshen.spotifylyrics",
-    "copyright": "Copyright © 2016-2017 Yichuan Shen"
+    "copyright": "Copyright © 2016-2019 Yichuan Shen"
   },
   "devDependencies": {
     "electron": "^4.0.5",
