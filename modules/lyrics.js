@@ -1,4 +1,4 @@
-const jsdom = require('jsdom')
+const {JSDOM} = require('jsdom')
 
 let cache = {}
 
@@ -14,14 +14,14 @@ let request = (url, callback = () => {}) => require('request')({
     callback(null, response, body)
 })
 
-let dom = (body, callback = () => {}) => jsdom.env(body, (err, window) => {
-    if (err) return callback(err)
+let dom = (body, callback = () => {}) => {
+    let dom = new JSDOM(body)
 
-    let $ = x => Array.from(window.document.querySelectorAll(x))
-    let text = x => x ? Array.from(x.childNodes).find(y => y.nodeName == '#text').nodeValue : null
+    let $ = x => Array.from(dom.window.document.querySelectorAll(x))
+    let text = x => x ? Array.from(x.childNodes).find(y => y.nodeName === '#text').nodeValue : null
 
     callback(null, window, $, text)
-})
+}
 
 exports.get = function(query, callback = () => {}) {
     if (query in cache)
@@ -73,7 +73,7 @@ exports.extractFrom = function(url, callback = () => {}) {
                 artists: $('.mxm-track-title__artist').map(x => text(x)),
                 album: text($('.mxm-track-footer__album h2')[0]),
                 art: 'https:' + $('.banner-album-image img')[0].src,
-                lyrics: $('.mxm-lyrics__content').map(x => text(x)).join('\n')
+                lyrics: $('.mxm-lyrics__content').map(x => x.textContent).join('\n')
             })
         })
     })
