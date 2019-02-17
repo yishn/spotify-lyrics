@@ -1,5 +1,6 @@
 const {Menu} = require('electron').remote
 const {h, Component} = require('preact')
+const classnames = require('classnames')
 const smartypants = require('../../modules/smartypants')
 
 class TrackInfo extends Component {
@@ -13,7 +14,6 @@ class TrackInfo extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        let [titleText, artistsText, albumText] = this.getRenderText()
         let types = ['title', 'artists', 'album']
         let stateChange = {}
 
@@ -37,7 +37,7 @@ class TrackInfo extends Component {
             Menu.buildFromTemplate(menu).popup({async: true, x: left, y: bottom})
         }
 
-        return h('section', {class: {'track-info': true, loading}},
+        return h('section', {class: classnames({'track-info': true, loading})},
             h('div', {class: 'drag'}),
 
             h('div', {class: 'art', onClick: openMenu},
@@ -51,11 +51,11 @@ class TrackInfo extends Component {
 
             h('ul', {},
                 ['title', 'artists', 'album'].map((type, i) => h('li', {
-                    class: {
+                    class: classnames({
                         [type]: true,
                         disabled: !this.props[type],
                         overflow: this.state[`${type}Overflow`]
-                    },
+                    }),
                     title: texts[i],
                     ref: el => this[`${type}Element`] = el,
                 }, texts[i]))

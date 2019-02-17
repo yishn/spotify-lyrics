@@ -1,5 +1,6 @@
 const {shell} = require('electron')
 const {h, Component} = require('preact')
+const classnames = require('classnames')
 const scroll = require('scroll')
 const smartypants = require('../../modules/smartypants')
 
@@ -35,9 +36,9 @@ class LyricsBox extends Component {
 
     render({loading, lyrics, url, progress}) {
         let words
-        
+
         return h('section', {
-            class: {'lyrics-box': true, loading},
+            class: classnames({'lyrics-box': true, loading}),
             ref: el => this.element = el,
             'data-progress': progress
         }, [
@@ -47,7 +48,7 @@ class LyricsBox extends Component {
             ? smartypants(lyrics).split('\n').map(line =>
                 (line = line.trim()) == ''
                 ? h('br')
-                : h('p', {class: {parentheses: line[0] == '(' && line[line.length - 1] == ')'}},
+                : h('p', {class: classnames({parentheses: line[0] == '(' && line[line.length - 1] == ')'})},
                     (words = line.split(/\s+/)).slice(0, words.length - 2).join(' ') + ' ',
                     h('span', {}, words.slice(-2).join(' '))
                 )
