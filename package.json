@@ -20,19 +20,18 @@
   },
   "homepage": "https://github.com/yishn/spotify-lyrics",
   "dependencies": {
-    "jsdom": "^9.8.3",
-    "preact": "^7.2.0",
-    "request": "^2.76.0",
-    "scroll": "^2.0.0",
-    "wintools": ">=0.1.0"
+    "jsdom": "^13.2.0",
+    "preact": "^8.4.2",
+    "request": "^2.88.0",
+    "scroll": "^3.0.0"
   },
   "build": {
     "appId": "de.yichuanshen.spotifylyrics",
     "copyright": "Copyright © 2016-2017 Yichuan Shen"
   },
   "devDependencies": {
-    "electron": "^1.7.8",
-    "electron-builder": "^19.33.0"
+    "electron": "^4.0.5",
+    "electron-builder": "^20.38.5"
   },
   "scripts": {
     "build": "build --dir"
