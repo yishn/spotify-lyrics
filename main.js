@@ -11,12 +11,14 @@ app.on('ready', () => {
         useContentSize: true,
         backgroundColor: '#121212',
         maximizable: false,
-        nodeIntegration: true,
         frame: false,
-        show: false
+        show: false,
+        webPreferences: {
+            nodeIntegration: true
+        }
     })
 
-    // window.toggleDevTools()
+    // window.webContents.openDevTools()
 
     window
     .on('closed', () => window = null)

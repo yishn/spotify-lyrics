@@ -21,12 +21,11 @@ let dom = body => {
     let $ = x => Array.from(dom.window.document.querySelectorAll(x))
     let text = x => x ? Array.from(x.childNodes).find(y => y.nodeName === '#text').nodeValue : null
 
-    return {window, $, text}
+    return {window: dom.window, $, text}
 }
 
 exports.get = async function(query) {
-    if (query in cache)
-        return cache[query]
+    if (query in cache) return cache[query]
 
     let list = await exports.searchFor(query)
     let result = await exports.extractFrom(list[0].url)
@@ -40,12 +39,12 @@ exports.searchFor = async function(query) {
     let {body} = await req(url)
     let {$, text} = dom(body)
 
-    return $('.tracks.list li').map(li => li = {
+    return $('.tracks.list li').map(li => ({
         title: text(li.querySelector('.title span')),
         artist: text(li.querySelector('.artist')),
         url: 'https://musixmatch.com' + li.querySelector('.title').href,
         art: 'https:' + li.querySelector('img').srcset.split(',').splice(-1)[0].trim().split(' ')[0]
-    })
+    }))
 }
 
 exports.extractFrom = async function(url) {

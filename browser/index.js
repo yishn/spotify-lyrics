@@ -3,10 +3,15 @@ const {h, render} = require('preact')
 const App = require('./components/App')
 
 const win = remote.getCurrentWindow()
+const defaultConfig = {
+    autoscroll: true,
+    alwaysOnTop: false
+}
 
-if (localStorage.autoscroll == null) {
-    localStorage.autoscroll = 'true'
-    localStorage.alwaysOnTop = 'false'
+for (let key in defaultConfig) {
+    if (localStorage[key] == null) {
+        localStorage[key] = defaultConfig[key]
+    }
 }
 
 render(h(App), document.body)
