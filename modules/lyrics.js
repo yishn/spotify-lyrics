@@ -3,25 +3,23 @@ const {JSDOM} = require('jsdom')
 
 let cache = {}
 
-let req = async url => new Promise((resolve, reject) => request({
-    url,
-    headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.148 Safari/537.36 Vivaldi/1.4.589.38'
-    }
-}, (err, response, body) => {
-    if (err || response.statusCode != 200)
-        return reject(err || new Error('Lyrics unavailable'))
+let domRequest = async url => {
+    let {response, body} = await new Promise((resolve, reject) =>
+        request({
+            url,
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.148 Safari/537.36 Vivaldi/1.4.589.38'
+            }
+        }, (err, response, body) => err ? reject(err) : resolve({response, body}))
+    )
 
-    resolve({response, body})
-}))
+    if (response.statusCode != 200) throw new Error('Lyrics unavailable')
 
-let dom = body => {
-    let dom = new JSDOM(body)
+    let dom = new JSDOM(body, {url})
+    let $$ = x => [...dom.window.document.querySelectorAll(x)]
+    let text = x => x ? [...x.childNodes].find(y => y.nodeName === '#text').nodeValue : null
 
-    let $ = x => Array.from(dom.window.document.querySelectorAll(x))
-    let text = x => x ? Array.from(x.childNodes).find(y => y.nodeName === '#text').nodeValue : null
-
-    return {window: dom.window, $, text}
+    resolve({$$, text})
 }
 
 exports.get = async function(query) {
@@ -36,27 +34,25 @@ exports.get = async function(query) {
 
 exports.searchFor = async function(query) {
     let url = `https://musixmatch.com/search/${encodeURIComponent(query)}/tracks`
-    let {body} = await req(url)
-    let {$, text} = dom(body)
+    let {$$, text} = await domRequest(url)
 
-    return $('.tracks.list li').map(li => ({
+    return $$('.tracks.list li').map(li => ({
         title: text(li.querySelector('.title span')),
         artist: text(li.querySelector('.artist')),
-        url: 'https://musixmatch.com' + li.querySelector('.title').href,
-        art: 'https:' + li.querySelector('img').srcset.split(',').splice(-1)[0].trim().split(' ')[0]
+        url: li.querySelector('.title').href,
+        art: li.querySelector('img').srcset.split(',').splice(-1)[0].trim().split(' ')[0]
     }))
 }
 
 exports.extractFrom = async function(url) {
-    let {body} = await req(url)
-    let {$, text} = dom(body)
+    let {$$, text} = await domRequest(url)
 
     return {
         url,
-        title: text($('.mxm-track-title__track')[0]),
-        artists: $('.mxm-track-title__artist').map(x => text(x)),
-        album: text($('.mxm-track-footer__album h2')[0]),
-        art: 'https:' + $('.banner-album-image img')[0].src,
-        lyrics: $('.mxm-lyrics__content').map(x => x.textContent).join('\n')
+        title: text($$('.mxm-track-title__track')[0]),
+        artists: $$('.mxm-track-title__artist').map(x => text(x)),
+        album: text($$('.mxm-track-footer__album h2')[0]),
+        art: $$('.banner-album-image img')[0].src,
+        lyrics: $$('.mxm-lyrics__content').map(x => x.textContent).join('\n')
     }
 }
