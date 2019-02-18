@@ -21,7 +21,7 @@ class App extends Component {
         }
 
         window.addEventListener('load', () => spotify.listen({
-            onSongUpdate: ({track, playing_position}) => {
+            onSongUpdate: async ({track, playing_position}) => {
                 let songId = ++id
 
                 this.setState({
@@ -39,14 +39,15 @@ class App extends Component {
 
                 let query = [this.state.title, ...this.state.artists].join(' ')
 
-                lyrics.get(query, (err, result) => {
-                    if (err) return this.setState({loading: false})
+                try {
+                    let result = await lyrics.get(query)
 
-                    result.loading = false
-
-                    if (this.state.id == songId)
-                        this.setState(result)
-                })
+                    if (this.state.id == songId) {
+                        this.setState(Object.assign({loading: false}, result))
+                    }
+                } catch (err) {
+                    this.setState({loading: false})
+                }
             },
 
             onSongProgress: ({track, playing_position}) => {

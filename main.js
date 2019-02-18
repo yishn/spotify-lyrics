@@ -11,6 +11,7 @@ app.on('ready', () => {
         useContentSize: true,
         backgroundColor: '#121212',
         maximizable: false,
+        nodeIntegration: true,
         frame: false,
         show: false
     })

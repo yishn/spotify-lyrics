@@ -15,7 +15,7 @@ render(h(App), document.body)
 
 let resizeId
 
-window.addEventListener('resize', function() {
+window.addEventListener('resize', () => {
     clearTimeout(resizeId)
 
     resizeId = setTimeout(() => {
@@ -26,7 +26,7 @@ window.addEventListener('resize', function() {
     }, 1000)
 })
 
-window.addEventListener('load', function() {
+window.addEventListener('load', () => {
     let width = +localStorage.width
     let height = +localStorage.height
 
